@@ -1,7 +1,7 @@
 
 
 const express = require('express');
-
+const io = require('socket.io')
 
 const PORT = process.env.PORT;
 const INDEX = '/index.html';
@@ -16,11 +16,6 @@ server.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
-const SOCKETPORT = process.env.SOCKETPORT || 3000
-
-var io = require('socket.io')
-
-io.listen(SOCKETPORT, () => console.log(`Socket is listening on ${SOCKETPORT}`))
 
 const users = {}
 
