@@ -16,6 +16,8 @@ server.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
+var io = require('socket.io').listen(PORT);
+
 const users = {}
 
 io.on('connection', socket => {
