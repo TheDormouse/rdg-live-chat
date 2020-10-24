@@ -1,7 +1,7 @@
 
 
 const express = require('express');
-const io = require('socket.io')()
+
 
 const PORT = process.env.PORT;
 const INDEX = '/index.html';
