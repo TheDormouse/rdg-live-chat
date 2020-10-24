@@ -16,7 +16,11 @@ server.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
+const SOCKETPORT = process.env.SOCKETPORT || 3000
+
 var io = require('socket.io')
+
+io.listen(SOCKETPORT, () => console.log(`Socket is listening on ${SOCKETPORT}`))
 
 const users = {}
 
