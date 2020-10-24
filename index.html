@@ -8,8 +8,9 @@
 <body>
     <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script defer src="/script.js"></script>
-
-    <div id="message-container"></div>
+    <h1 id="title">RDG Livechat</h1>
+    <div id="message-container">
+    </div>
     <br>
     <br>
     <br>
@@ -21,6 +22,10 @@
 </body>
 </html>
 <style>
+    #title{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-right: 13px;
+    }
     body {
       padding: 0;
       margin: 0;
@@ -31,15 +36,19 @@
     #message-container {
       width: 80%;
       max-width: 1200px;
+      margin-top: 10px;
     }
 
     #message-container div {
-      background-color: #CCC;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 10px;
+      background-color: rgb(173, 219, 215);
       padding: 5px;
     }
 
     #message-container div:nth-child(2n) {
-      background-color: #FFF;
+     font-family: Arial, Helvetica, sans-serif;
+      background-color: rgba(189, 175, 175, 0.486);
     }
 
     #send-container {
