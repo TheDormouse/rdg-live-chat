@@ -1,4 +1,4 @@
-const socket = io.connect('https://live-chat-raeed.herokuapp.com:5500')
+const socket = io.connect('https://live-chat-raeed.herokuapp.com:8080')
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
