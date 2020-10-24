@@ -13,7 +13,7 @@ server.listen(PORT, () => console.log(`Listening on ${PORT}`))
 server.use(express.static("public"))
 
 server.get('/', (req, res) => {
-  res.sendFile(`${__dirname}/index.html`)
+    res.sendFile(`${__dirname}/index.html`)
 })
 
 const users = {}
