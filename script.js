@@ -1,5 +1,4 @@
 const socket = io.connect('https://127.0.0.1:3000')
-const io = socketIO(server)
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
