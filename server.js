@@ -1,5 +1,5 @@
+const io = require('socket.io')(3000)
 const express = require('express');
-const io = require('socket.io')
 
 const PORT = process.env.PORT || 5500;
 const INDEX = '/index.html';
@@ -12,20 +12,14 @@ server.use(express.static("public"))
 
 server.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
-})
-
+});
 
 const users = {}
 
 io.on('connection', socket => {
   socket.on('new-user', name => {
     users[socket.id] = name
-    if(name == "null"){
-        socket.broadcast.emit('null-user', name)
-        delete users[socket.id]
-    }else{
     socket.broadcast.emit('user-connected', name)
-    }
   })
   socket.on('send-chat-message', message => {
     socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })
