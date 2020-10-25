@@ -4,7 +4,7 @@ const express = require('express');
 const socketIo = require('socket.io');
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static('public'))
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
