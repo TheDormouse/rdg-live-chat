@@ -11,12 +11,12 @@ app.get('/', (req, res) => {
 });
 
 const server = http.createServer(app);
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5500;
 server.listen(PORT, () => {
   console.log(`Our app is running on port ${ PORT }`);
 });
 
-const io = socketIo(server);
+const io = socketIo(3000);
 
 const users = {}
 
