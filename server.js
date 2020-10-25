@@ -1,18 +1,15 @@
-const express = require("express");
+const http = require('http');
+const path = require('path');
+const express = require('express');
+const socketIo = require('socket.io');
+
 const app = express();
-const http = require('http').createServer(app)
-const socket = require("socket.io")
+app.use(express.static(path.join(__dirname, 'public')));
 
-// App setup
-const PORT = 5500;
+const server = http.createServer(app);
+server.listen(5500);
 
-
-// Static files
-app.use(express.static("public"));
-
-
-// Socket setup
-const io = socket(app);
+const io = socketIo(server);
 
 const users = {}
 
