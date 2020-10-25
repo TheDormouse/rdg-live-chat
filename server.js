@@ -1,17 +1,22 @@
-const io = require('socket.io')(3000)
-const express = require('express');
+const express = require("express");
+const socket = require("socket.io");
 
-const PORT = process.env.PORT;
-const INDEX = '/index.html';
+// App setup
+const PORT = 5500;
+const app = express();
+const server = app.listen(PORT, function () {
+  console.log(`Listening on port ${PORT}`);
+  console.log(`http://localhost:${PORT}`);
+});
 
-const server = express()
+// Static files
+app.use(express.static("public"));
 
-server.listen(PORT, () => console.log(`Listening on ${PORT}`))
+// Socket setup
+const io = socket(server);
 
-server.use(express.static("public"))
-
-server.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/index.html`)
+io.on("connection", function (socket) {
+  console.log("Made socket connection");
 });
 
 const users = {}
