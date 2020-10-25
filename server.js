@@ -12,7 +12,7 @@ app.use(express.static("public"));
 
 
 // Socket setup
-const io = socket(server);
+const io = socket(app);
 
 const users = {}
 
