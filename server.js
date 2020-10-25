@@ -1,18 +1,18 @@
-const io = require('socket.io')(3000)
-const express = require('express');
+const express = require("express");
+const app = express();
+const http = require('http').createServer(app)
+const socket = require("socket.io")(http)
 
-const PORT = process.env.PORT;
-const INDEX = '/index.html';
+// App setup
+const PORT = 5500;
 
-const server = express()
 
-server.listen(PORT, () => console.log(`Listening on ${PORT}`))
+// Static files
+app.use(express.static("public"));
 
-server.use(express.static("public"))
 
-server.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/index.html`)
-});
+// Socket setup
+const io = socket(server);
 
 const users = {}
 
