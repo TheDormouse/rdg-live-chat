@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "devStart": "nodemon server.js",
-    "start": "node server.js",
-    "start2": "npm i socket.io"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

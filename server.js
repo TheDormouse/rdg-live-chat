@@ -1,5 +1,4 @@
-const SOCKETPORT = "3000"
-const io = require('socket.io')(SOCKETPORT, () => console.log(`Listening on ${SOCKETPORT}`))
+const io = require('socket.io')("3000")
 const express = require('express');
 
 const PORT = process.env.PORT || 5500;
