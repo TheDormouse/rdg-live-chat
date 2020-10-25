@@ -7,7 +7,10 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 const server = http.createServer(app);
-server.listen(5500);
+const PORT = process.env.PORT;
+server.listen(PORT, () => {
+  console.log(`Our app is running on port ${ PORT }`);
+});
 
 const io = socketIo(server);
 
