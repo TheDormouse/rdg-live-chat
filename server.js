@@ -1,12 +1,12 @@
 const express = require("express");
-const socket = require("socket.io");
+const socket = require("socket.io").http.createServer(app);
 
 // App setup
 const PORT = 5500;
 const app = express();
 const server = app.listen(PORT, function () {
   console.log(`Listening on port ${PORT}`);
-  console.log(`http://localhost:${PORT}`);
+  console.log(`https://live-chat-raeed:${PORT}`);
 });
 
 // Static files
@@ -14,10 +14,6 @@ app.use(express.static("public"));
 
 // Socket setup
 const io = socket(server);
-
-io.on("connection", function (socket) {
-  console.log("Made socket connection");
-});
 
 const users = {}
 
