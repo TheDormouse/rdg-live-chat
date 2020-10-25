@@ -12,7 +12,7 @@
   "dependencies": {
     "http": "0.0.1-security",
     "socket.io": "^2.3.0",
-    "express":"*"
+    "express": "*"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
