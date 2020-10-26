@@ -1,22 +1,13 @@
-const http = require('http');
-const path = require('path');
+const PORT = process.env.PORT || 3000
 const express = require('express');
-const socketIo = require('socket.io');
-
 const app = express();
+const server = app.listen(PORT);
+const io = require('socket.io')(server);
 app.use('/static', express.static('public'))
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
-
-const server = http.createServer(app);
-const PORT = process.env.PORT || 5500;
-server.listen(PORT, () => {
-  console.log(`Our app is running on port ${ PORT }`);
-});
-
-const io = socketIo(3000);
 
 const users = {}
 
