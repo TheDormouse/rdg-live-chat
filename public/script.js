@@ -1,7 +1,13 @@
-const socket = io.connect('https://live-chat-raeed.herokuapp.com:3000')
+const socket = io();
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
+function appendMessage(message) {
+  const messageElement = document.createElement('div')
+  messageElement.innerText = message
+  messageContainer.append(messageElement)
+}
+
 
 const name = prompt('What is your name?')
 appendMessage('You joined')
@@ -27,8 +33,3 @@ messageForm.addEventListener('submit', e => {
   messageInput.value = ''
 })
 
-function appendMessage(message) {
-  const messageElement = document.createElement('div')
-  messageElement.innerText = message
-  messageContainer.append(messageElement)
-}
